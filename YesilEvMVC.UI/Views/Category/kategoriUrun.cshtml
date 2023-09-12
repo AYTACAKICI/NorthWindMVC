@@ -1,0 +1,27 @@
+﻿@using YesilEvMVC.UI.Models.Entity
+@{
+    ViewBag.Title = "kategoriUrun";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>kategoriUrun</h2>
+
+<table>
+    <tr>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Temsilcisi</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @item.
+            </td>
+            <td>
+                @item.
+            </td>
+        </tr>
+
+    }
+</table>
+

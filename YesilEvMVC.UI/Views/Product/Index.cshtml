@@ -1,0 +1,54 @@
+﻿@using YesilEvMVC.UI.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model List<Products>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Ürün Kodu</th>
+            <th>Ürüm Adı</th>
+            <th>Üretici</th>
+            <th>Kategori</th>
+            <th>Fiyat</th>
+            <th>Stok</th>
+            <th> <a href="/Product/NewProduct" class="btn btn-primary">Yeni Ürün Ekle</a> </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.ProductID</td>
+                <td>@item.ProductName</td>
+                @*<td>@item.Suppliers.CompanyName</td>*@
+                <td>@item.Categories.CategoryName</td>
+                <td>@item.UnitPrice</td>
+                <td>@item.UnitsInStock</td>
+                <td>
+                    @Html.ActionLink("Sil", "DeleteProduct", new { id = item.ProductID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })
+                    <a href="/Product/FindProduct/@item.ProductID" class="btn btn-success ">Güncelle</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+@*@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))*@
+<a href="/Product/NewProduct" class="btn btn-primary">Yeni Ürün Ekle</a>
+<script type="text/javascript" src="https://cdn.datatables.net/1.13.5/js/jquery.dataTables.min.js"></script>
+<link href="~/Content/DataTables/css/dataTables.bootstrap4.css" rel="stylesheet" />
+
+
+
+<script>
+    /*  $('#tbl1').dataTable();*/
+    let table = new DataTable('#tbl1');
+
+</script>

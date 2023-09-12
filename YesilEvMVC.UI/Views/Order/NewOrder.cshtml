@@ -1,0 +1,58 @@
+﻿@using YesilEvMVC.UI.Models.Entity
+@model Tuple<Orders, Order_Details>
+@{
+    ViewBag.Title = "NewOrder";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<h2 class="center">Yeni Sipariş Ekle </h2>
+
+@using (Html.BeginForm("NewOrder", "Order", FormMethod.Post))
+{
+    <div>
+        @Html.LabelFor(x => x.Item2.ProductID)
+        @Html.DropDownListFor(x => x.Item2.ProductID, (List<SelectListItem>)ViewBag.product, new { @class = "form-control", @required = "required" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Item2.Quantity)
+        @Html.TextBoxFor(x => x.Item2.Quantity, new { @class = "form-control", @required = "required" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Item2.UnitPrice)
+        @Html.TextBoxFor(x => x.Item2.UnitPrice, new { @class = "form-control", @required = "required" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Item1.CustomerID)
+        @Html.DropDownListFor(x => x.Item1.CustomerID, (List<SelectListItem>)ViewBag.customer, new { @class = "form-control", @required = "required" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Item1.EmployeeID)
+        @Html.DropDownListFor(x => x.Item1.EmployeeID, (List<SelectListItem>)ViewBag.employee, new { @class = "form-control", @required = "required" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Item1.ShipVia)
+        @Html.DropDownListFor(x => x.Item1.ShipVia, (List<SelectListItem>)ViewBag.shipper, new { @class = "form-control", @required = "required" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Item1.ShipAddress)
+        @Html.TextBoxFor(x => x.Item1.ShipAddress, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Item1.ShipRegion)
+        @Html.TextBoxFor(x => x.Item1.ShipRegion, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Item1.ShipCountry)
+        @Html.TextBoxFor(x => x.Item1.ShipCountry, new { @class = "form-control" })
+    </div>
+    <br />
+    <div>
+        <input type="submit" class="btn btn-success form-control" name="name" value="Ekle" />
+    </div>
+    
+
+}
+
+
+

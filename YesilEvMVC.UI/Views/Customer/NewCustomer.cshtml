@@ -1,0 +1,45 @@
+﻿@model YesilEvMVC.UI.Models.Entity.Customers
+@{
+    ViewBag.Title = "NewCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@using (Html.BeginForm("NewCustomer", "Customer", FormMethod.Post))
+{
+
+    <div>
+        @Html.LabelFor(x => x.CustomerID, "Müşteri Kayıt ID *")
+        @Html.TextBoxFor(x => x.CustomerID, new { @class = "form-control", @required = "required", @placeholder = "Müşteri özeline ait kısa kayıt isimi giriniz" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.CompanyName, "Şirket İsmi*")
+        @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control", @required = "required", @placeholder = "Şirket ismi giriniz" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.ContactName, "Personel İsmi*")
+        @Html.TextBoxFor(x => x.ContactName, new { @class = "form-control", @required = "required", @placeholder = "Personel İsmi giriniz" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.ContactTitle, "Personel Ünvanı")
+        @Html.TextBoxFor(x => x.ContactTitle, new { @class = "form-control", @placeholder = "Personel ünvanı giriniz" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Address, "Adres")
+        @Html.TextBoxFor(x => x.Address, new { @class = "form-control", @placeholder = "Adres giriniz" })
+
+    </div>
+    <div>
+        @Html.LabelFor(x => x.City, "Adres")
+        @Html.TextBoxFor(x => x.City, new { @class = "form-control", @placeholder = "Şehir giriniz" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Phone, "Telefon")
+        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @placeholder = "Telofon numarası giriniz" })
+
+    </div>
+    <div style=" margin-top:15px">
+        <button class="btn btn-info"> Müşteri Ekle</button>
+    </div>
+
+}
+

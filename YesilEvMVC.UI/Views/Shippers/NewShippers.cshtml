@@ -1,0 +1,24 @@
+﻿@using YesilEvMVC.UI.Models.Entity
+@model Shippers
+@{
+    ViewBag.Title = "NewShippers";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>NewShippers</h2>
+
+@using (Html.BeginForm("NewShippers", "Shippers", FormMethod.Post))
+{   <div>
+        @Html.LabelFor(x => x.CompanyName,"Firma İsmi :")
+        @Html.TextBoxFor(x => x.CompanyName, new { @class = "form-control", @placeholder = "Firma Adı Giriniz" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Phone,"Telefon Numarası :")
+        @Html.TextBoxFor(x => x.Phone, new { @class = "form-control", @placeholder = "Telefon Numarası giriniz" })
+    </div>
+
+    <input type="submit" style="margin-top:15px" class="btn btn-info" name="name" value="Kargo Firmasını Ekle" />
+
+
+}
+

@@ -1,0 +1,25 @@
+﻿@model YesilEvMVC.UI.Models.Entity.Categories
+@{
+    ViewBag.Title = "NewCategory";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<form class="form-group" method="post">
+    
+    <div>
+        @Html.LabelFor(x => x.CategoryName,"Kategori Adı*")
+        @Html.TextBoxFor(x => x.CategoryName, new { @class = "form-control" , @placeholder = "Kategori adı giriniz" })
+        @Html.ValidationMessageFor(x=>x.CategoryName,"",new {@style ="color:red"})
+    </div>
+    <div>
+        @Html.LabelFor(x => x.Description,"Açıklama*")
+        @Html.TextBoxFor(x => x.Description, new { @class = "form-control", @placeholder = "Kategori açıklaması giriniz" })
+        @Html.ValidationMessageFor(x => x.Description, "", new { @style = "color:red" })
+    </div>
+
+    <div style=" margin-top:15px">
+        <button class="btn btn-info"> Kategori Ekle</button>
+    </div>
+
+
+</form>

@@ -1,0 +1,45 @@
+﻿@using YesilEvMVC.UI.Models.Entity
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Customers>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>Müşteri ID</th>
+        <th>Firma Adı</th>
+        <th>Müşteri Adı</th>
+        <th>Müşteri Ünvanı</th>
+        <th>Adres</th>
+        <th>Şehir</th>
+        <th>Telefon No</th>
+        <th>  <a href="/Customer/NewCustomer" class="btn btn-primary">Yeni Müşteri Ekle</a> </th>
+
+    </tr>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CustomerID</td>
+                <td>@item.CompanyName</td>
+                <td>@item.ContactName</td>
+                <td>@item.ContactTitle</td>
+                <td>@item.Address</td>
+                <td>@item.City</td>
+                <td>@item.Phone</td>
+                <td>
+                    @Html.ActionLink("Sil", "DeleteCustomer", new { id = item.CustomerID }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })
+                    <a href="/Customer/FindCustomer/@item.CustomerID" class="btn btn-success ">Güncelle</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+@Html.PagedListPager((IPagedList)Model,sayfa =>Url.Action("Index",new {sayfa}))
+<a href="/Customer/NewCustomer" class="btn btn-primary">Yeni Müşteri Ekle</a>
+
+

@@ -1,0 +1,35 @@
+﻿@model YesilEvMVC.UI.Models.Entity.Customers
+@{
+    ViewBag.Title = "FindCustomer";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>FindCustomer</h2>
+
+@using (Html.BeginForm("Update", "Customer", FormMethod.Post))
+{
+        @Html.LabelFor(m => m.CustomerID)
+        @Html.TextBoxFor(m => m.CustomerID, new { @readonly = "readonly", @class = "form-control" } )
+        <br />
+        @Html.LabelFor(m => m.CompanyName)
+        @Html.TextBoxFor(m => m.CompanyName, new { @class = "form-control"  })
+        <br />
+        @Html.LabelFor(m => m.ContactName)
+        @Html.TextBoxFor(m => m.ContactName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.ContactTitle)
+        @Html.TextBoxFor(m => m.ContactTitle, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Address)
+        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.City)
+        @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.Phone)
+        @Html.TextBoxFor(m => m.Phone, new { @class = "form-control" })
+        <br />
+        <input type="submit" class="btn btn-warning" name="name" value="Müşteri güncelle" />
+   
+}
+

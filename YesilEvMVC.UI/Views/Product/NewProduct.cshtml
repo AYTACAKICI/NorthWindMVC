@@ -1,0 +1,39 @@
+﻿@model YesilEvMVC.UI.Models.Entity.Products
+@{
+    ViewBag.Title = "NewProduct";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+@using (Html.BeginForm("NewProduct", "Product", FormMethod.Post))
+{
+
+    <div>
+        @Html.LabelFor(x => x.ProductName, "Ürün Adı*")
+        @Html.TextBoxFor(x => x.ProductName, new { @class = "form-control", @required = "required", @placeholder = "Ürün adı giriniz" })
+
+        @*<label>Ürün Adı</label>
+        <input type="text" name="ProductName" class="form-control" value="" />*@
+    </div>
+    <div>
+        <label>Üreticisi*</label>
+        @Html.DropDownListFor(x => x.Suppliers.SupplierID, (List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+    </div>
+    <div>
+        <label>Kategori*</label>
+       @Html.DropDownListFor(x => x.Categories.CategoryID, (List<SelectListItem>)ViewBag.urtc, new { @class = "form-control" })
+    </div>
+    <div>
+        @Html.LabelFor(x => x.UnitPrice, "Fiyat*")
+        @Html.TextBoxFor(x => x.UnitPrice, new { @class = "form-control", @required = "required", @placeholder = "Ürün'ün fiyatını giriniz" })
+        
+    </div>
+    <div>
+        @Html.LabelFor(x => x.UnitsInStock, "Stok Miktarı*")
+        @Html.TextBoxFor(x => x.UnitsInStock, new { @class = "form-control", @required = "required", @placeholder = "Stok miktarını giriniz" })
+    </div>
+
+    <div style=" margin-top:15px">
+
+        <button class="btn btn-info"> Ürün Ekle</button>
+    </div>
+
+}

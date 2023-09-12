@@ -1,0 +1,34 @@
+﻿@model YesilEvMVC.UI.Models.Entity.Products
+@{
+    ViewBag.Title = "FindProduct";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>FindProduct</h2>
+
+@using (Html.BeginForm("Update", "Product", FormMethod.Post))
+{
+        @Html.LabelFor(m=>m.ProductID)
+        @Html.TextBoxFor(m => m.ProductID, new { @class = "form-control", @readonly = "readonly" })
+        <br />
+        @Html.LabelFor(m => m.ProductName)
+        @Html.TextBoxFor(m => m.ProductName, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.SupplierID, "Supplier")
+        @Html.DropDownListFor(m => m.SupplierID,(List<SelectListItem>)ViewBag.urtc , new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.CategoryID, "Category")
+        @Html.DropDownListFor(m => m.CategoryID,(List<SelectListItem>)ViewBag.dgr, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UnitPrice)
+        @Html.TextBoxFor(m => m.UnitPrice, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(m => m.UnitsInStock)
+        @Html.TextBoxFor(m => m.UnitsInStock, new { @class = "form-control" })
+        <br />
+        <div>
+            <input type="submit"  class="btn btn-warning" name="name" value="Ürünü güncelle" />
+        </div>
+        
+}
+
